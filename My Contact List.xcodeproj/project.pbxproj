@@ -15,6 +15,7 @@
 		5A63ACEB29CF495B0096AE1D /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63ACEA29CF495B0096AE1D /* ContactsViewController.swift */; };
 		5A63ACED29CF49850096AE1D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63ACEC29CF49850096AE1D /* MapViewController.swift */; };
 		5A63ACEF29CF49A30096AE1D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A63ACEE29CF49A30096AE1D /* SettingsViewController.swift */; };
+		5A98072029D8DB1400C6C0C0 /* Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98071F29D8DB1400C6C0C0 /* Constrants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5A63ACEA29CF495B0096AE1D /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		5A63ACEC29CF49850096AE1D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5A63ACEE29CF49A30096AE1D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5A98071F29D8DB1400C6C0C0 /* Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		5A3D498529BEA021008D98C8 /* My Contact List */ = {
 			isa = PBXGroup;
 			children = (
+				5A98071F29D8DB1400C6C0C0 /* Constrants.swift */,
 				5A3D498629BEA021008D98C8 /* AppDelegate.swift */,
 				5A3D498829BEA021008D98C8 /* SceneDelegate.swift */,
 				5A63ACEA29CF495B0096AE1D /* ContactsViewController.swift */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A98072029D8DB1400C6C0C0 /* Constrants.swift in Sources */,
 				5A63ACEB29CF495B0096AE1D /* ContactsViewController.swift in Sources */,
 				5A3D498729BEA021008D98C8 /* AppDelegate.swift in Sources */,
 				5A63ACED29CF49850096AE1D /* MapViewController.swift in Sources */,

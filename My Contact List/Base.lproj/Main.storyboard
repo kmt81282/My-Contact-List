@@ -31,14 +31,55 @@
         <!--Settings-->
         <scene sceneID="VZS-WQ-4dL">
             <objects>
-                <viewController title="Settings" id="5E4-bs-5TO" sceneMemberID="viewController">
+                <viewController title="Settings" id="5E4-bs-5TO" customClass="SettingsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0nU-a5-CfJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="fwd-6V-kTW">
+                                <rect key="frame" x="36.666666666666657" y="250.33333333333334" width="320" height="351.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIf-Yw-ox9">
+                                        <rect key="frame" x="119.66666666666669" y="0.0" width="80.333333333333314" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drg-6D-nSg">
+                                        <rect key="frame" x="0.0" y="63" width="320" height="216"/>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z2u-Sv-Krl">
+                                        <rect key="frame" x="69.666666666666643" y="320.33333333333326" width="180.33333333333337" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ascending Sort:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFs-nD-QjR">
+                                                <rect key="frame" x="0.0" y="0.0" width="121.33333333333333" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iRI-74-IZX">
+                                                <rect key="frame" x="131.33333333333331" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="sortDirectionChanged:" destination="5E4-bs-5TO" eventType="valueChanged" id="1hn-Es-Fjn"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EMg-BY-E4D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fwd-6V-kTW" firstAttribute="centerY" secondItem="0nU-a5-CfJ" secondAttribute="centerY" id="fUw-vG-JA8"/>
+                            <constraint firstItem="fwd-6V-kTW" firstAttribute="centerX" secondItem="0nU-a5-CfJ" secondAttribute="centerX" id="jkl-Pr-K6n"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="sample-834-bolt" selectedImage="sample-834-bolt" id="05N-u6-AH8"/>
+                    <connections>
+                        <outlet property="pckSortField" destination="drg-6D-nSg" id="7iQ-0o-K0n"/>
+                        <outlet property="swAscending" destination="iRI-74-IZX" id="VNz-oV-bKt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHx-Vu-3dt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,14 +334,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cYX-C2-GCi">
-                                <rect key="frame" x="0.0" y="122.99999999999999" width="393" height="34.333333333333329"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="cYX-C2-GCi">
+                                <rect key="frame" x="128" y="213" width="136" height="34.333333333333343"/>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jr4-07-5E0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cYX-C2-GCi" firstAttribute="top" secondItem="jr4-07-5E0" secondAttribute="top" constant="20" id="HZ9-3A-mWt"/>
+                            <constraint firstItem="cYX-C2-GCi" firstAttribute="leading" secondItem="jr4-07-5E0" secondAttribute="leading" constant="128" id="5CY-FF-B30"/>
+                            <constraint firstItem="cYX-C2-GCi" firstAttribute="top" secondItem="jr4-07-5E0" secondAttribute="top" constant="110" id="Qxm-pJ-qaj"/>
+                            <constraint firstItem="jr4-07-5E0" firstAttribute="trailing" secondItem="cYX-C2-GCi" secondAttribute="trailing" constant="129" id="nA8-Eh-rVW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Birthdate" id="FYU-Qi-Cjz">
