@@ -46,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drg-6D-nSg">
-                                        <rect key="frame" x="0.0" y="63" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="62.333333333333343" width="320" height="216.00000000000003"/>
                                     </pickerView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Z2u-Sv-Krl">
                                         <rect key="frame" x="69.666666666666643" y="320.33333333333326" width="180.33333333333337" height="31"/>
@@ -237,7 +237,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Change"/>
                                                         <connections>
-                                                            <segue destination="5v6-Td-Wiz" kind="show" id="ZNa-y9-4gU"/>
+                                                            <segue destination="5v6-Td-Wiz" kind="show" identifier="segueContactDate" id="ZNa-y9-4gU"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -329,7 +329,7 @@
         <!--Birthdate-->
         <scene sceneID="DDy-zY-Yz0">
             <objects>
-                <viewController title="Birthdate" id="5v6-Td-Wiz" userLabel="Birthdate" sceneMemberID="viewController">
+                <viewController title="Birthdate" id="5v6-Td-Wiz" userLabel="Birthdate" customClass="DateViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m2I-n1-28X">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -349,6 +349,9 @@
                     <navigationItem key="navigationItem" title="Birthdate" id="FYU-Qi-Cjz">
                         <barButtonItem key="backBarButtonItem" title="Contact" id="9vY-Oc-wI3"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dtpDate" destination="cYX-C2-GCi" id="jGv-SE-QSP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6T-Ua-lfE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
