@@ -324,7 +324,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7E-fK-z7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994.6564885496183" y="763.38028169014092"/>
+            <point key="canvasLocation" x="894" y="763"/>
         </scene>
         <!--Birthdate-->
         <scene sceneID="DDy-zY-Yz0">
