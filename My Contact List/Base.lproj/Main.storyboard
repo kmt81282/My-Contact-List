@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QK0-ZG-y4N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QK0-ZG-y4N">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -268,14 +268,14 @@
                         <outlet property="btnChange" destination="OjO-14-PhP" id="cKO-vP-Qah"/>
                         <outlet property="lblBirthdate" destination="YSA-8C-6Hd" id="N24-hF-hUn"/>
                         <outlet property="sgmtEditMode" destination="Yei-y2-eUV" id="7UB-MC-t3f"/>
-                        <outlet property="txtAddress" destination="sxu-jU-c9F" id="btO-jx-0Wg"/>
-                        <outlet property="txtCell" destination="aX1-k0-lOY" id="qUq-Yo-lzI"/>
-                        <outlet property="txtCity" destination="uSz-0j-8Sl" id="IiW-r7-9so"/>
-                        <outlet property="txtEmail" destination="gm5-3c-wy6" id="ahS-OM-m91"/>
-                        <outlet property="txtName" destination="ccC-jy-F2T" id="LSz-rS-tKP"/>
-                        <outlet property="txtPhone" destination="AYz-Ih-4Lt" id="3hf-Ft-hRT"/>
-                        <outlet property="txtState" destination="fIw-rT-fDL" id="qQd-Hb-cBO"/>
-                        <outlet property="txtZip" destination="9oT-Ui-O5z" id="Muk-Oe-23x"/>
+                        <outlet property="txtAddress" destination="sxu-jU-c9F" id="mtj-rW-PKZ"/>
+                        <outlet property="txtCell" destination="aX1-k0-lOY" id="vqq-1R-eed"/>
+                        <outlet property="txtCity" destination="uSz-0j-8Sl" id="HD3-47-u62"/>
+                        <outlet property="txtEmail" destination="gm5-3c-wy6" id="8ha-sa-OqL"/>
+                        <outlet property="txtName" destination="ccC-jy-F2T" id="tMC-Na-bl6"/>
+                        <outlet property="txtPhone" destination="AYz-Ih-4Lt" id="ia5-qE-bit"/>
+                        <outlet property="txtState" destination="fIw-rT-fDL" id="XvP-wO-MwY"/>
+                        <outlet property="txtZip" destination="9oT-Ui-O5z" id="DSX-vK-9yQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M63-F4-EZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

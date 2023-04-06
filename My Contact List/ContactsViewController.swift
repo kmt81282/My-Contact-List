@@ -11,8 +11,14 @@ import CoreData
 class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate {
     
     var currentContact: Contact?
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueContactDate") {
+                let dateController = segue.destination as! DateViewController
+                dateController.delegate = self
+            }
+        }
 
     
     @IBOutlet weak var sgmtEditMode: UISegmentedControl!
@@ -21,26 +27,35 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var txtCity: UITextField!
     @IBOutlet weak var txtState: UITextField!
     @IBOutlet weak var txtZip: UITextField!
+    @IBOutlet weak var txtCell: UITextField!
+    @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
-    @IBOutlet weak var txtCell: UITextField!
-    @IBOutlet weak var txtPhone: UITextField!
+
     
-    
-    
+    func dateChanged(date: Date) {
+        let context = appDelegate.persistentContainer.viewContext
+        if currentContact == nil {
+            currentContact = Contact(context: context)
+        }
+        currentContact?.birthday = date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        lblBirthdate.text = formatter.string(from: date)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        changeEditMode(self)
-        
+
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func changeEditMode(_ sender: Any) {
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtPhone, txtCell, txtEmail]
         
-        for textField in textFields {
-            textField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+        for textfield in textFields {
+            textfield.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEndOnExit)
         }
-        
-        
         
         func textFieldShouldEndEditing(_textField: UITextField) -> Bool {
             if currentContact == nil {
@@ -56,30 +71,6 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             currentContact?.phoneNumber = txtPhone.text
             return true
         }
-        
-    }
-    func dateChanged(date: Date) {
-        if currentContact == nil {
-            let context = appDelegate.persistentContainer.viewContext
-            currentContact = Contact(context: context)
-        }
-        currentContact?.birthday = date
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        lblBirthdate.text = formatter.string(from: date)
-    }
-        
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segueContactDate") {
-                let dateController = segue.destination as! DateViewController
-                dateController.delegate = self
-            }
-        }
-
-        // Do any additional setup after loading the view.
-
-    @IBAction func changeEditMode(_ sender: Any) {
-        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZip, txtPhone, txtCell, txtEmail]
         if sgmtEditMode.selectedSegmentIndex == 0 {
             for textField in textFields {
                 textField.isEnabled = false
@@ -91,30 +82,17 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         else if sgmtEditMode.selectedSegmentIndex == 1 {
             for textField in textFields {
                 textField.isEnabled = true
-                navigationItem.rightBarButtonItem = nil
                 textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
             btnChange.isHidden = false
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveContact))
         }
     }
-   
-    @objc func  saveContact() {
-        appDelegate.saveContext()
-        sgmtEditMode.selectedSegmentIndex = 0
-        changeEditMode(self)
+    @objc func saveContact() {
+    appDelegate.saveContext()
+    sgmtEditMode.selectedSegmentIndex = 0
+    changeEditMode(self)
     }
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     /*
     // MARK: - Navigation
