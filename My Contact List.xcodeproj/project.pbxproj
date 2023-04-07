@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A2EB57F29DF1D6C00452E9E /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2EB57E29DF1D6C00452E9E /* ContactsTableViewController.swift */; };
 		5A3D498929BEA021008D98C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3D498829BEA021008D98C8 /* SceneDelegate.swift */; };
 		5A3D498E29BEA021008D98C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3D498C29BEA021008D98C8 /* Main.storyboard */; };
 		5A3D499029BEA022008D98C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A3D498F29BEA022008D98C8 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A2EB57E29DF1D6C00452E9E /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		5A3D498329BEA021008D98C8 /* My Contact List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Contact List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3D498829BEA021008D98C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5A3D498D29BEA021008D98C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				5A63ACEC29CF49850096AE1D /* MapViewController.swift */,
 				5A63ACEE29CF49A30096AE1D /* SettingsViewController.swift */,
 				5A3D498C29BEA021008D98C8 /* Main.storyboard */,
+				5A2EB57E29DF1D6C00452E9E /* ContactsTableViewController.swift */,
 				5A3D498F29BEA022008D98C8 /* Assets.xcassets */,
 				5A3D499129BEA022008D98C8 /* LaunchScreen.storyboard */,
 				5A3D499429BEA022008D98C8 /* Info.plist */,
@@ -163,6 +166,7 @@
 				5A98072029D8DB1400C6C0C0 /* Constrants.swift in Sources */,
 				5A63ACEB29CF495B0096AE1D /* ContactsViewController.swift in Sources */,
 				5A62946429DE4AB90090EB71 /* Contact+CoreDataClass.swift in Sources */,
+				5A2EB57F29DF1D6C00452E9E /* ContactsTableViewController.swift in Sources */,
 				5A63ACED29CF49850096AE1D /* MapViewController.swift in Sources */,
 				5A3D498929BEA021008D98C8 /* SceneDelegate.swift in Sources */,
 				5A63ACEF29CF49A30096AE1D /* SettingsViewController.swift in Sources */,

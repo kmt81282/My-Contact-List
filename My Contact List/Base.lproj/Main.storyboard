@@ -100,7 +100,7 @@
                                     <segment title="Edit"/>
                                 </segments>
                                 <connections>
-                                    <action selector="changeEditMode:" destination="D3u-zB-9jy" eventType="valueChanged" id="0K7-cb-l7b"/>
+                                    <action selector="changeEditMode:" destination="D3u-zB-9jy" eventType="valueChanged" id="NOz-3h-eYB"/>
                                 </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Nm9-wR-LJi">
@@ -267,12 +267,13 @@
                     <connections>
                         <outlet property="btnChange" destination="OjO-14-PhP" id="cKO-vP-Qah"/>
                         <outlet property="lblBirthdate" destination="YSA-8C-6Hd" id="N24-hF-hUn"/>
-                        <outlet property="sgmtEditMode" destination="Yei-y2-eUV" id="7UB-MC-t3f"/>
+                        <outlet property="scrollView" destination="Nm9-wR-LJi" id="kQn-qK-nKs"/>
+                        <outlet property="sgmtEditMode" destination="Yei-y2-eUV" id="Lpv-ba-AlN"/>
                         <outlet property="txtAddress" destination="sxu-jU-c9F" id="mtj-rW-PKZ"/>
                         <outlet property="txtCell" destination="aX1-k0-lOY" id="vqq-1R-eed"/>
                         <outlet property="txtCity" destination="uSz-0j-8Sl" id="HD3-47-u62"/>
                         <outlet property="txtEmail" destination="gm5-3c-wy6" id="8ha-sa-OqL"/>
-                        <outlet property="txtName" destination="ccC-jy-F2T" id="tMC-Na-bl6"/>
+                        <outlet property="txtName" destination="ccC-jy-F2T" id="2AC-Gy-LeQ"/>
                         <outlet property="txtPhone" destination="AYz-Ih-4Lt" id="ia5-qE-bit"/>
                         <outlet property="txtState" destination="fIw-rT-fDL" id="XvP-wO-MwY"/>
                         <outlet property="txtZip" destination="9oT-Ui-O5z" id="DSX-vK-9yQ"/>
@@ -280,7 +281,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M63-F4-EZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.3740458015266" y="763.38028169014092"/>
+            <point key="canvasLocation" x="1393" y="1473"/>
+        </scene>
+        <!--Contacts Table View Controller-->
+        <scene sceneID="t93-Ws-eLO">
+            <objects>
+                <tableViewController storyboardIdentifier="ContactsCell" id="6Ys-ZX-KI2" customClass="ContactsTableViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qrN-cT-fA3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" id="dvg-tc-eFk">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dvg-tc-eFk" id="GDb-2A-wOb">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="D3u-zB-9jy" kind="show" identifier="EditContact" trigger="accessoryAction" id="MMf-Uw-E08"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6Ys-ZX-KI2" id="BLo-3G-fxC"/>
+                            <outlet property="delegate" destination="6Ys-ZX-KI2" id="y2w-bs-LoY"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hmR-Xi-nNs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uUm-Td-eo7">
+                            <connections>
+                                <segue destination="D3u-zB-9jy" kind="show" identifier="AddContact" id="gdi-iJ-MIl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvK-Jn-39M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="657" y="1473"/>
         </scene>
         <!--Map-->
         <scene sceneID="ARQ-Gl-xhD">
@@ -319,7 +360,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="D3u-zB-9jy" kind="relationship" relationship="rootViewController" id="qoj-kN-nCw"/>
+                        <segue destination="6Ys-ZX-KI2" kind="relationship" relationship="rootViewController" id="HRu-rB-07J"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7E-fK-z7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -358,6 +399,9 @@
             <point key="canvasLocation" x="2681.679389312977" y="762.67605633802816"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MMf-Uw-E08"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="sample-834-bolt" width="26" height="28"/>
         <image name="sample-881-globe" width="28" height="28"/>
