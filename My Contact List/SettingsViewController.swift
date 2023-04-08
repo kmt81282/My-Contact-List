@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var swAscending: UISwitch!
     
-    let sortOrderItems: Array<String> = ["ContactName", "City", "Birthday"]
+    let sortOrderItems: Array<String> = ["contactname", "city", "birthday"]
     
     @IBAction func sortDirectionChanged(_ sender: Any) {
         let settings = UserDefaults.standard
