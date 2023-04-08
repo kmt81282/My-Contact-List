@@ -88,7 +88,7 @@
         <!--Contacts-->
         <scene sceneID="aiD-EF-pnM">
             <objects>
-                <viewController title="Contacts" id="D3u-zB-9jy" userLabel="Contacts" customClass="ContactsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactController" title="Contacts" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D3u-zB-9jy" userLabel="Contacts" customClass="ContactsViewController" customModule="My_Contact_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eRh-t6-eHl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

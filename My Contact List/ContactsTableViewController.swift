@@ -16,17 +16,18 @@ class ContactsTableViewController: UITableViewController {
     var contacts:[NSManagedObject] = []
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            tableView.dataSource = self   // This class is the tableview's data source
-            tableView.delegate = self
-            //loadDataFromDatabase()
-            
-            // Uncomment the following line to preserve selection between presentations
-            // self.clearsSelectionOnViewWillAppear = false
-            // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-            // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self   // This class is the tableview's data source
+        tableView.delegate = self
+        //loadDataFromDatabase()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+    }
         
         override func viewWillAppear(_ animated: Bool) {
             loadDataFromDatabase()
@@ -81,17 +82,45 @@ class ContactsTableViewController: UITableViewController {
         }
         */
 
-        /*
+        
         // Override to support editing the table view.
-        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 // Delete the row from the data source
+                let contact = contacts[indexPath.row] as? Contact
+                let context = appDelegate.persistentContainer.viewContext
+                context.delete(contact!)
+                do {
+                    try context.save()
+                }
+                catch {
+                    fatalError("Error saving context: \(error)")
+                }
+                loadDataFromDatabase()
                 tableView.deleteRows(at: [indexPath], with: .fade)
             } else if editingStyle == .insert {
                 // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             }
         }
-        */
+        
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let selectedContact = contacts[indexPath.row] as? Contact
+        let name = selectedContact!.contactName!
+        let actionHandler = { (action: UIAlertAction!) -> Void in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "ContactController") as? ContactsViewController
+            controller?.currentContact = selectedContact
+            self.navigationController?.pushViewController(controller!, animated: true)
+        }
+        
+        let alertController = UIAlertController(title: "Contact Selected", message: "Selected row: \(indexPath.row) (\(name))", preferredStyle: .alert)
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let actionDetails = UIAlertAction(title: "Show Details", style: .default, handler: actionHandler)
+        alertController.addAction(actionCancel)
+        alertController.addAction(actionDetails)
+        present(alertController, animated: true, completion: nil)
+        
+    }
 
         /*
         // Override to support rearranging the table view.
