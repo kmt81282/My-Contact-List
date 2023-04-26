@@ -21,6 +21,7 @@
 		5A98072029D8DB1400C6C0C0 /* Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98071F29D8DB1400C6C0C0 /* Constrants.swift */; };
 		5A98072329DA10FD00C6C0C0 /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A98072129DA10FD00C6C0C0 /* MyContactListModel.xcdatamodeld */; };
 		5A98072529DB596100C6C0C0 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98072429DB596100C6C0C0 /* DateViewController.swift */; };
+		5AF63DFA29EF7F2E00DCFDD6 /* LocationDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF63DF929EF7F2E00DCFDD6 /* LocationDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5A98071F29D8DB1400C6C0C0 /* Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constrants.swift; sourceTree = "<group>"; };
 		5A98072229DA10FD00C6C0C0 /* MyContactListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyContactListModel.xcdatamodel; sourceTree = "<group>"; };
 		5A98072429DB596100C6C0C0 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		5AF63DF929EF7F2E00DCFDD6 /* LocationDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		5A3D498529BEA021008D98C8 /* My Contact List */ = {
 			isa = PBXGroup;
 			children = (
+				5AF63DF929EF7F2E00DCFDD6 /* LocationDemoViewController.swift */,
 				5A98071F29D8DB1400C6C0C0 /* Constrants.swift */,
 				5A98072129DA10FD00C6C0C0 /* MyContactListModel.xcdatamodeld */,
 				5A62948929DE54AF0090EB71 /* AppDelegate.swift */,
@@ -166,6 +169,7 @@
 				5A98072029D8DB1400C6C0C0 /* Constrants.swift in Sources */,
 				5A63ACEB29CF495B0096AE1D /* ContactsViewController.swift in Sources */,
 				5A62946429DE4AB90090EB71 /* Contact+CoreDataClass.swift in Sources */,
+				5AF63DFA29EF7F2E00DCFDD6 /* LocationDemoViewController.swift in Sources */,
 				5A2EB57F29DF1D6C00452E9E /* ContactsTableViewController.swift in Sources */,
 				5A63ACED29CF49850096AE1D /* MapViewController.swift in Sources */,
 				5A3D498929BEA021008D98C8 /* SceneDelegate.swift in Sources */,
@@ -319,6 +323,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MK72MXAZ2M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My Contact List/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -333,7 +338,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "GSU.My-Contact-List";
+				PRODUCT_BUNDLE_IDENTIFIER = MyContactListMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -348,7 +353,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MK72MXAZ2M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My Contact List/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -363,7 +368,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "GSU.My-Contact-List";
+				PRODUCT_BUNDLE_IDENTIFIER = MyContactListMT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
