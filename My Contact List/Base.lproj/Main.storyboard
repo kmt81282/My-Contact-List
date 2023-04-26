@@ -180,7 +180,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="3UP-Ym-N46" userLabel="CellPhone Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="61.333333333333336"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuw-uj-4an">
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuw-uj-4an">
                                                                 <rect key="frame" x="0.0" y="0.0" width="147.33333333333334" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -258,14 +258,14 @@
                                         <rect key="frame" x="16" y="371" width="361" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzg-R7-yec">
-                                                <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="206" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="D7U-FA-V0q"/>
                                                     <constraint firstAttribute="height" constant="100" id="Ppe-mU-Acr"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmN-uK-YUC">
-                                                <rect key="frame" x="167.33333333333337" y="33" width="193.66666666666663" height="34.333333333333343"/>
+                                                <rect key="frame" x="211" y="33" width="150" height="34.333333333333343"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Take Picture"/>
                                                 <connections>
@@ -301,6 +301,7 @@
                         <outlet property="btnChange" destination="OjO-14-PhP" id="cKO-vP-Qah"/>
                         <outlet property="imgContactPicture" destination="bzg-R7-yec" id="tum-Li-9go"/>
                         <outlet property="lblBirthdate" destination="YSA-8C-6Hd" id="N24-hF-hUn"/>
+                        <outlet property="lblPhone" destination="xuw-uj-4an" id="fiq-12-MVi"/>
                         <outlet property="scrollView" destination="Nm9-wR-LJi" id="kQn-qK-nKs"/>
                         <outlet property="sgmtEditMode" destination="Yei-y2-eUV" id="Lpv-ba-AlN"/>
                         <outlet property="txtAddress" destination="sxu-jU-c9F" id="mtj-rW-PKZ"/>

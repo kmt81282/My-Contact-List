@@ -2,7 +2,7 @@
 //  Contact+CoreDataProperties.swift
 //  My Contact List
 //
-//  Created by Marc Turner on 4/5/23.
+//  Created by Marc Turner on 4/26/23.
 //
 //
 
@@ -25,6 +25,7 @@ extension Contact {
     @NSManaged public var state: String?
     @NSManaged public var streetAddress: String?
     @NSManaged public var zipCode: String?
+    @NSManaged public var image: Data?
 
 }
 

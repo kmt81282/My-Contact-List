@@ -11,7 +11,6 @@ import CoreData
 class ContactsViewController: UIViewController, UITextFieldDelegate, DateControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var currentContact: Contact?
-    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 
@@ -31,6 +30,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
     @IBOutlet weak var imgContactPicture: UIImageView!
+    @IBOutlet weak var lblPhone: UILabel!
     
     @IBAction func changePicture(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -46,13 +46,13 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
             imgContactPicture.contentMode = .scaleAspectFit
+            if currentContact == nil {
+                let context = appDelegate.persistentContainer.viewContext
+                currentContact = Contact(context: context)
+            }
+            currentContact?.image = image.jpegData(compressionQuality: 1.0)
             imgContactPicture.image = image
         }
-        if currentContact == nil {
-            let context = appDelegate.persistentContainer.viewContext
-            currentContact = Contact(context: context)
-        }
-        currentContact?.image =
         dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
@@ -72,6 +72,10 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                 if currentContact!.birthday != nil {
                     lblBirthdate.text = formatter.string(from: currentContact!.birthday as! Date)
                 }
+                if let imageData = currentContact?.image as? Data {
+                    imgContactPicture.image = UIImage(data: imageData)
+                }
+
             }
             
             // Do any additional setup after loading the view.
@@ -84,10 +88,21 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                                     action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)),
                                     for: UIControl.Event.editingDidEnd)
             }
-        
-        
+        let longPress = UILongPressGestureRecognizer.init(target: self, action: #selector(callPhone(gesture:)))
+        lblPhone.addGestureRecognizer(longPress)
         }
         
+    @objc func callPhone(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            let number = txtCell.text
+            if number!.count > 0 { //Don't call blank numbers
+                let url = NSURL(string: "telprompt://\(number!)")
+                UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+                print("Calling Phone Number: \(url!)")
+                
+            }
+        }
+    }
         func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
             currentContact?.contactName = txtName.text
             currentContact?.streetAddress = txtAddress.text
@@ -100,6 +115,8 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
             return true
             
         }
+        
+
         
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
