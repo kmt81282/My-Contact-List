@@ -31,6 +31,8 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var btnChange: UIButton!
     @IBOutlet weak var imgContactPicture: UIImageView!
     @IBOutlet weak var lblPhone: UILabel!
+    @IBOutlet weak var btnPicture: UIButton!
+    @IBOutlet weak var lblAddress: UILabel!
     
     @IBAction func changePicture(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -96,7 +98,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
         if gesture.state == .began {
             let number = txtCell.text
             if number!.count > 0 { //Don't call blank numbers
-                let url = NSURL(string: "telprompt://\(number!)")
+                let url = NSURL(string: "telprompt  ://\(number!)")
                 UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
                 print("Calling Phone Number: \(url!)")
                 
@@ -143,6 +145,8 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                     textField.borderStyle = UITextField.BorderStyle.none
                 }
                 btnChange.isHidden = true
+                btnPicture.isHidden = true
+                
                 navigationItem.rightBarButtonItem = nil
             }
             else if sgmtEditMode.selectedSegmentIndex == 1{
@@ -151,6 +155,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                     textField.borderStyle = UITextField.BorderStyle.roundedRect
                 }
                 btnChange.isHidden = false
+                btnPicture.isHidden = false
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                                     target: self,
                                                                     action: #selector(self.saveContact))
