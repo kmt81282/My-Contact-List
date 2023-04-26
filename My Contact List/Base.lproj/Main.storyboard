@@ -68,16 +68,25 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPc-3u-44V">
+                                <rect key="frame" x="317.66666666666669" y="59.000000000000007" width="55.333333333333314" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EMg-BY-E4D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EMg-BY-E4D" firstAttribute="trailing" secondItem="EPc-3u-44V" secondAttribute="trailing" constant="20" id="Q9m-sQ-gHw"/>
                             <constraint firstItem="fwd-6V-kTW" firstAttribute="centerY" secondItem="0nU-a5-CfJ" secondAttribute="centerY" id="fUw-vG-JA8"/>
                             <constraint firstItem="fwd-6V-kTW" firstAttribute="centerX" secondItem="0nU-a5-CfJ" secondAttribute="centerX" id="jkl-Pr-K6n"/>
+                            <constraint firstItem="EPc-3u-44V" firstAttribute="top" secondItem="EMg-BY-E4D" secondAttribute="top" id="uUP-LC-lsR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="sample-834-bolt" selectedImage="sample-834-bolt" id="05N-u6-AH8"/>
                     <connections>
+                        <outlet property="lblBattery" destination="EPc-3u-44V" id="w9K-cC-6Bm"/>
                         <outlet property="pckSortField" destination="drg-6D-nSg" id="7iQ-0o-K0n"/>
                         <outlet property="swAscending" destination="iRI-74-IZX" id="VNz-oV-bKt"/>
                     </connections>
@@ -127,7 +136,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Ms-ft-MyW" userLabel="Address Stack View">
-                                                <rect key="frame" x="0.0" y="54" width="373" height="34"/>
+                                                <rect key="frame" x="0.0" y="53.999999999999986" width="373" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzK-je-zSM">
                                                         <rect key="frame" x="0.0" y="0.0" width="67.333333333333329" height="34"/>
@@ -143,7 +152,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z4U-AI-HaF" userLabel="CityStateZip Stack View">
-                                                <rect key="frame" x="0.0" y="108" width="373" height="34"/>
+                                                <rect key="frame" x="0.0" y="107.99999999999999" width="373" height="34.000000000000014"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSz-0j-8Sl">
                                                         <rect key="frame" x="0.0" y="0.0" width="53.666666666666664" height="34"/>
@@ -178,7 +187,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-k0-lOY">
-                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="147.33333333333334" height="34"/>
+                                                                <rect key="frame" x="0.0" y="27.333333333333336" width="147.33333333333334" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                             </textField>
@@ -194,7 +203,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AYz-Ih-4Lt">
-                                                                <rect key="frame" x="0.0" y="27.333333333333314" width="196.66666666666666" height="34"/>
+                                                                <rect key="frame" x="0.0" y="27.333333333333336" width="196.66666666666666" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                             </textField>
@@ -245,10 +254,33 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Kzk-mL-Qqz" userLabel="Picture Stack">
+                                        <rect key="frame" x="16" y="371" width="361" height="100"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzg-R7-yec">
+                                                <rect key="frame" x="0.0" y="0.0" width="162.33333333333334" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="D7U-FA-V0q"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Ppe-mU-Acr"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmN-uK-YUC">
+                                                <rect key="frame" x="167.33333333333337" y="33" width="193.66666666666663" height="34.333333333333343"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Take Picture"/>
+                                                <connections>
+                                                    <action selector="changePicture:" destination="D3u-zB-9jy" eventType="touchUpInside" id="f2c-nP-SPE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="uPf-RX-EMN" firstAttribute="leading" secondItem="cxv-mp-diA" secondAttribute="leading" constant="10" id="Tht-Uk-KhR"/>
                                     <constraint firstItem="cxv-mp-diA" firstAttribute="trailing" secondItem="uPf-RX-EMN" secondAttribute="trailing" constant="10" id="emv-CC-5Qo"/>
+                                    <constraint firstItem="cxv-mp-diA" firstAttribute="trailing" secondItem="Kzk-mL-Qqz" secondAttribute="trailing" constant="16" id="fg1-0W-si0"/>
+                                    <constraint firstItem="Kzk-mL-Qqz" firstAttribute="top" secondItem="uPf-RX-EMN" secondAttribute="bottom" constant="8" id="iYN-oK-LXx"/>
+                                    <constraint firstItem="Kzk-mL-Qqz" firstAttribute="leading" secondItem="cxv-mp-diA" secondAttribute="leading" constant="16" id="vIb-rl-asA"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Ohv-gI-LkQ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="cxv-mp-diA"/>
@@ -267,6 +299,7 @@
                     <navigationItem key="navigationItem" title="Contact" id="dyL-fR-mWa"/>
                     <connections>
                         <outlet property="btnChange" destination="OjO-14-PhP" id="cKO-vP-Qah"/>
+                        <outlet property="imgContactPicture" destination="bzg-R7-yec" id="tum-Li-9go"/>
                         <outlet property="lblBirthdate" destination="YSA-8C-6Hd" id="N24-hF-hUn"/>
                         <outlet property="scrollView" destination="Nm9-wR-LJi" id="kQn-qK-nKs"/>
                         <outlet property="sgmtEditMode" destination="Yei-y2-eUV" id="Lpv-ba-AlN"/>
@@ -344,6 +377,15 @@
                                     <action selector="findUser:" destination="I0M-X4-MwO" eventType="touchUpInside" id="GNh-Jv-Fko"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JLF-VV-Wyz">
+                                <rect key="frame" x="131" y="739" width="131" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="" image="Satellite"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="49Z-w9-Gxr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -676,6 +718,7 @@
         <segue reference="MMf-Uw-E08"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Satellite" width="128" height="128"/>
         <image name="sample-834-bolt" width="26" height="28"/>
         <image name="sample-881-globe" width="28" height="28"/>
         <systemColor name="systemBackgroundColor">

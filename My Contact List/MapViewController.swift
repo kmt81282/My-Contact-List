@@ -33,6 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
+    var contacts:[Contact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +55,61 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     /*
     override func viewWillAppear(_ animated: Bool) {
-        mapView.setUserTrackingMode(.follow, animated: true)
+        mapView.setUserTrackingMode(.follow, animated: true)  //This automatically shows the user location, we removed to add the find Me button functionality
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Contact")
+        var fetchedObjects: [NSManagedObject] = []
+        do {
+            fetchedObjects = try context.fetch(request)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        contacts = fetchedObjects as! [Contact]
+        //remove all annotations
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        //go through all contacts
+        for contact in contacts {
+            let address = "\(contact.streetAddress!), \(contact.city!) \(contact.state!)"
+            //geocoding
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString(address) {
+                (placemarks, error) in
+                self.processAddressResponse(contact: contact, withPlacemarks: placemarks, error: error)
+            }
+        }
+    }
+    
+    private func processAddressResponse(contact: Contact, withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
+        if let error = error {
+            print("Geocode Error: \(error)")
+        }
+        else {
+            var bestMatch: CLLocation?
+            if let placemarks = placemarks, placemarks.count > 0 {
+                bestMatch = placemarks.first?.location
+            }
+            if let coordinate = bestMatch?.coordinate {
+                let mp = MapPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                mp.title = contact.contactName
+                mp.subtitle = contact.streetAddress
+                mapView.addAnnotation(mp)
+            }
+            else {
+                print("Didn't find any matching locations")
+            }
+        }
+    }
+    
      
     @IBAction func findUser(_ sender: Any) {
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
-        
+        //mapView.showsUserLocation = true
+        //mapView.setUserTrackingMode(.follow, animated: true)
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         let errorType = error._code == CLError.denied.rawValue ? "Location Permission Denied" :
@@ -74,7 +122,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         alertController.addAction(actionOK)
         present(alertController, animated: true, completion: nil)
     }
-    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        var span = MKCoordinateSpan()
+        span.latitudeDelta = 0.2
+        span.longitudeDelta = 0.2
+        let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, span: span)
+        //let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        mapView.setRegion(viewRegion, animated: true)
+        let mp = MapPoint(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        mp.title = "You"
+        mp.subtitle = "Are Here"
+        mapView.addAnnotation(mp)
+        
+    }
     
     
     
@@ -171,19 +231,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        var span = MKCoordinateSpan()
-        span.latitudeDelta = 0.2
-        span.longitudeDelta = 0.2
-        let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-        //let viewRegion = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
-        mapView.setRegion(viewRegion, animated: true)
-        let mp = MapPoint(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        mp.title = "You"
-        mp.subtitle = "Are Here"
-        mapView.addAnnotation(mp)
-        
-    }
+
      */
 
 
